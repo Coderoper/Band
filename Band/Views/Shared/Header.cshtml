@@ -1,0 +1,29 @@
+<!-- nav bar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/books" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Books
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/customers" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Customers
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0" action="/search" method="post" name="search">
+      <input class="form-control" type="text" placeholder="Search" name="searchdate">
+    </form>
+  </div>
+</nav>
+<!-- main header -->
+<div class="col-12 jumbotron" style="background-image: url(https://blog.oup.com/wp-content/uploads/2015/06/bookstore-indepedent.jpg); border:5px; solid black;">
+  <h1 class="display-1" id="main-header">Book Store</h1>
+</div>
