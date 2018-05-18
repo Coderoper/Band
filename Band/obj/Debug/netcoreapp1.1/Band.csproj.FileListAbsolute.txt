@@ -1,0 +1,5 @@
+/Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.deps.json
+/Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.runtimeconfig.json
+/Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.runtimeconfig.dev.json
+/Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.csproj.CoreCompileInputs.cache
+/Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.AssemblyInfo.cs

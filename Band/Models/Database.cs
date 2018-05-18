@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
-using Band;
+using BandApp;
 
 namespace Band.Models
 {

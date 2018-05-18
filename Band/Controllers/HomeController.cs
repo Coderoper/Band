@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Band.Models;
+using BandApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Band.Controllers
