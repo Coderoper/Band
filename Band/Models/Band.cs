@@ -37,20 +37,20 @@ namespace BandApp.Models
       return this.GetId().GetHashCode();
     }
     public override bool Equals(System.Object otherBand)
-    {
-      if (!(otherBand is Band))
-      {
-        return false;
-      }
-      else
-      {
-         Band newBand = (Band) otherBand;
-         bool nameEquality = this.GetBandName() == newBand.GetBandName();
-         bool idEquality =this.GetId() == newBand.GetId();
-
-         return (nameEquality && idEquality);
-       }
-    }
+        {
+          if (!(otherBand is Band))
+          {
+            return false;
+          }
+          else
+          {
+             Band newBand = (Band) otherBand;
+             bool idEquality = this.GetId() == newBand.GetId();
+             bool descriptionEquality = this.GetBandName() == newBand.GetBandName();
+             // We no longer compare Bands' categoryIds in a categoryEquality bool here.
+             return (idEquality && descriptionEquality);
+          }
+        }
 
     //create Band instance in database table 'bands'
     public void Save()
@@ -195,7 +195,7 @@ namespace BandApp.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE bands SET bandName = @BandName WHERE id = @searchId;";
+      cmd.CommandText = @"UPDATE bands SET band_name = @BandName WHERE id = @searchId;";
 
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
@@ -262,7 +262,7 @@ namespace BandApp.Models
     //  conn.Open();
     //
     //  MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-    //  cmd.CommandText = @"SELECT * FROM bands WHERE bandName LIKE '%" + band "';";
+    //  cmd.CommandText = @"SELECT * FROM bands WHERE band_name LIKE '%" + band "';";
     //  MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
     //  while(rdr.Read())
     //  {
