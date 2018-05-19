@@ -1,0 +1,14 @@
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.Tests.deps.json
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.Tests.runtimeconfig.json
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.Tests.runtimeconfig.dev.json
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/obj/Debug/netcoreapp1.1/Band.Tests.csproj.CoreCompileInputs.cache
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/obj/Debug/netcoreapp1.1/Band.Tests.AssemblyInfo.cs
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.Tests.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.Tests.pdb
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/bin/Debug/netcoreapp1.1/Band.pdb
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/obj/Debug/netcoreapp1.1/Band.Tests.dll
+/Users/austinroberts/Desktop/Band.Solution/Band.Test/obj/Debug/netcoreapp1.1/Band.Tests.pdb

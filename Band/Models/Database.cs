@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using BandApp;
 
-namespace Band.Models
+namespace BandApp.Models
 {
     public class DB
     {

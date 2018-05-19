@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BandApp;
 using MySql.Data.MySqlClient;
 
-namespace BandStore.Models
+namespace BandApp.Models
 {
   public class Venue
   {
@@ -15,7 +15,7 @@ namespace BandStore.Models
     public Venue (string venueName, int id = 0)
     {
       _id = id;
-      _name = venueName;
+      _venueName = venueName;
     }
     public int GetId()
     {
@@ -25,9 +25,9 @@ namespace BandStore.Models
     {
       return _venueName;
     }
-    public void SetVenueName(string newName)
+    public void SetVenueName(string newVenueName)
     {
-      _name = newName;
+      _venueName = newVenueName;
     }
 
     public void Save()
@@ -40,7 +40,7 @@ namespace BandStore.Models
 
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@Name";
-      name.Value = this._name;
+      name.Value = this._venueName;
       cmd.Parameters.Add(name);
 
       cmd.ExecuteNonQuery();
@@ -73,7 +73,7 @@ namespace BandStore.Models
       }
       return allVenues;
     }
-    public void UpdateVenue(string newName)
+    public void UpdateVenue(string newVenueName)
     {
         MySqlConnection conn = DB.Connection();
         conn.Open();
@@ -88,11 +88,11 @@ namespace BandStore.Models
 
         MySqlParameter venue_name = new MySqlParameter();
         venue_name.ParameterName = "@NewName";
-        venue_name.Value = newName;
+        venue_name.Value = newVenueName;
         cmd.Parameters.Add(venue_name);
 
         cmd.ExecuteNonQuery();
-        _name = newName;
+        _venueName = newVenueName;
         conn.Close();
         if (conn != null)
         {
@@ -119,10 +119,9 @@ namespace BandStore.Models
         {
           venueId = rdr.GetInt32(0);
           name = rdr.GetString(1);
-          address = rdr.GetString(2);
         }
 
-        Venue newVenue = new Venue(name, address, id);
+        Venue newVenue = new Venue(name, id);
         conn.Close();
         if (conn != null)
         {
@@ -170,8 +169,8 @@ namespace BandStore.Models
         conn.Open();
         MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"SELECT bands.* FROM venues
-            JOIN books_venues ON (venues.id = books_venues.venues_id)
-            JOIN books ON (books_venues.books_id = books.id)
+            JOIN bands_venues ON (venues.id = bands_venues.venues_id)
+            JOIN bands ON (bands_venues.bands_id = bands.id)
             WHERE venues.id = @VenueId;";
         MySqlParameter categoryIdParameter = new MySqlParameter();
         categoryIdParameter.ParameterName = "@VenueId";
@@ -193,20 +192,21 @@ namespace BandStore.Models
         {
             conn.Dispose();
         }
-        return Books;
+        return Bands;
     }
-        public override bool Equals(System.Object otherItem)
+        public override bool Equals(System.Object otherVenue)
         {
-          if (!(otherItem is Customer))
+          if (!(otherVenue is Venue))
           {
             return false;
           }
           else
           {
-             Venue newItem = (Venue) otherItem;
-             bool descriptionEquality = this.GetName() == newItem.GetVenueName();
+             Venue newVenue = (Venue) otherVenue;
+             bool nameEquality = this.GetVenueName() == newVenue.GetVenueName();
+             bool idEquality =this.GetId() == newVenue.GetId();
 
-             return (descriptionEquality && addressEquality);
+             return (nameEquality && idEquality);
            }
         }
 
@@ -215,7 +215,7 @@ namespace BandStore.Models
              return this.GetId().GetHashCode();
         }
 
-        //search for books
+        //search for bands
         public static List<Venue> SearchVenue(string venue)
         {
          List<Venue> MyVenues = new List<Venue> {};

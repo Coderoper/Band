@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using BandApp;
 using MySql.Data.MySqlClient;
 
-namespace Band.Models
+namespace BandApp.Models
 {
   public class Band
   {
     //private variables
     private int _id;
     private string _bandName;
-
-
 
     public Band (string bandName, int id = 0)
     {
@@ -30,7 +28,7 @@ namespace Band.Models
     }
     public void SetBandName(string newBandName)
     {
-      _bandName = newbandName;
+      _bandName = newBandName;
     }
 
     //overrides for testing
@@ -38,18 +36,20 @@ namespace Band.Models
     {
       return this.GetId().GetHashCode();
     }
-    public override bool Equals(System.Object otherBook)
+    public override bool Equals(System.Object otherBand)
     {
-      if (!(otherBook is Book))
+      if (!(otherBand is Band))
       {
         return false;
       }
       else
       {
-        Band newBand = (Band) otherBand;
-        bool nameEquality = this.GetBandName() == newBand.GetBandName();
-        bool isbnEquality = this.GetIsbn() == newBook.GetIsbn();
-      }
+         Band newBand = (Band) otherBand;
+         bool nameEquality = this.GetBandName() == newBand.GetBandName();
+         bool idEquality =this.GetId() == newBand.GetId();
+
+         return (nameEquality && idEquality);
+       }
     }
 
     //create Band instance in database table 'bands'
@@ -57,13 +57,13 @@ namespace Band.Models
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
-      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO bands (bandName) VALUES (@BandName);";
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO bands (band_name) VALUES (@BandName);";
 
-      MySqlParameter bookName = new MySqlParameter();
-      bookName.ParameterName = "@BandName";
-      bookName.Value = this._bookName;
-      cmd.Parameters.Add(bookName);
+      MySqlParameter bandName = new MySqlParameter();
+      bandName.ParameterName = "@BandName";
+      bandName.Value = this._bandName;
+      cmd.Parameters.Add(bandName);
 
       cmd.ExecuteNonQuery();
       _id = (int) cmd.LastInsertedId;
@@ -100,7 +100,7 @@ namespace Band.Models
       }
     }
 
-    //get all single Book instances in Book class
+    //get all single Band instances in Band class
     public static List<Band> GetAll()
     {
       List<Band> allBands = new List<Band> {};
@@ -126,7 +126,7 @@ namespace Band.Models
       return allBands;
     }
 
-    //get all Book-linked customer instances from join table
+    //get all Band-linked customer instances from join table
     public List<Venue> GetVenue()
     {
       MySqlConnection conn = DB.Connection();
@@ -137,7 +137,7 @@ namespace Band.Models
       JOIN venues ON (bands_venues.venues_id = venues_id) WHERE bands.id = @BandId;";
 
       MySqlParameter BandId = new MySqlParameter();
-      BandkId.ParameterName = "@BandId";
+      BandId.ParameterName = "@BandId";
       BandId.Value = _id;
       cmd.Parameters.Add(BandId);
 
@@ -158,7 +158,7 @@ namespace Band.Models
       return Venues;
     }
 
-    //find single Book instance in table 'books'
+    //find single Band instance in table 'bands'
     public static Band Find(int id)
     {
       MySqlConnection conn = DB.Connection();
@@ -176,7 +176,7 @@ namespace Band.Models
       string bandName = "";
       while(rdr.Read())
       {
-        bookId = rdr.GetInt32(0);
+        bandId = rdr.GetInt32(0);
         bandName = rdr.GetString(1);
       }
 
@@ -189,7 +189,7 @@ namespace Band.Models
       return foundBand;
     }
 
-    //update single Book instance in table 'books'
+    //update single Band instance in table 'bands'
     public void UpdateBand(string bandName)
     {
       MySqlConnection conn = DB.Connection();
@@ -204,7 +204,7 @@ namespace Band.Models
 
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@BandName";
-      name.Value = bookName;
+      name.Value = bandName;
       cmd.Parameters.Add(name);
 
       cmd.ExecuteNonQuery();
@@ -217,14 +217,14 @@ namespace Band.Models
 
     }
 
-    //delete single Book instance in table 'bands'
+    //delete single Band instance in table 'bands'
     public void DeleteBand()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"DELETE FROM bands WHERE id = @BandId
-      DELETE FROM books_customers WHERE books_id = @BookId;";
+      DELETE FROM bands_customers WHERE bands_id = @BandId;";
 
       MySqlParameter id = new MySqlParameter();
       id.ParameterName = "@BandId";
@@ -254,10 +254,10 @@ namespace Band.Models
         conn.Dispose();
       }
     }
-    //search for books
+    //search for bands
     // public static List<Band> SearchBands(string band)
     // {
-    //  List<Band> MyBooks = new List<Book> {};
+    //  List<Band> MyBands = new List<Band> {};
     //  MySqlConnection conn = DB.Connection();
     //  conn.Open();
     //

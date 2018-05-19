@@ -3,3 +3,7 @@
 /Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.runtimeconfig.dev.json
 /Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.csproj.CoreCompileInputs.cache
 /Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.AssemblyInfo.cs
+/Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.dll
+/Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.pdb
+/Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.dll
+/Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.pdb

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MySql.Data.MySqlClient;
 
 
-namespace Band
+namespace BandApp
 {
     public class Startup
     {
