@@ -19,6 +19,20 @@ namespace BandApp.Tests
        Band.DeleteAll();
     }
     // [TestMethod]
+    // public void Saves_TwoVenues_AsSame()
+    // {
+    //   //Arrange
+    //   Venue firstVenue = new Venue ("Seattle");
+    //   firstVenue.Save();
+    //   Venue secondVenue = new Venue ("Seattle");
+    //   secondVenue.Save();
+    //
+    //   Console.WriteLine("firstVenue: " +firstVenue.GetId());
+    //   Console.WriteLine("secondVenue: " +secondVenue.GetId());
+    //   //Assert
+    //   Assert.AreEqual(firstVenue, secondVenue);
+    // }
+    // [TestMethod]
     // public void Save_InstanceToDatabase_VenueTable()
     // {
     //   //Arrange

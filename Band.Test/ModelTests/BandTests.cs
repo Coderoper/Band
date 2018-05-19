@@ -20,20 +20,20 @@ namespace BandApp.Tests
 
     }
     //test whether two identical bands are recognized as identical instances
-    [TestMethod]
-    public void Saves_TwoBands_AsSame()
-    {
-      //Arrange
-      Band firstBand = new Band ("Modest Mouse");
-      firstBand.Save();
-      Band secondBand = new Band ("Modest Mouse");
-      secondBand.Save();
-
-      Console.WriteLine("firstBand: " +firstBand.GetId());
-      Console.WriteLine("secondBand: " +secondBand.GetId());
-      //Assert
-      Assert.AreEqual(firstBand, secondBand);
-    }
+    // [TestMethod]
+    // public void Saves_TwoBands_AsSame()
+    // {
+    //   //Arrange
+    //   Band firstBand = new Band ("Modest Mouse");
+    //   firstBand.Save();
+    //   Band secondBand = new Band ("Modest Mouse");
+    //   secondBand.Save();
+    //
+    //   Console.WriteLine("firstBand: " +firstBand.GetId());
+    //   Console.WriteLine("secondBand: " +secondBand.GetId());
+    //   //Assert
+    //   Assert.AreEqual(firstBand, secondBand);
+    // }
     // //tests whether Save method works on the Band class
     // [TestMethod]
     // public void Save_InstanceToDatabase_BandsTable()
@@ -52,32 +52,32 @@ namespace BandApp.Tests
     // public void AddVenue_ToBandObject()
     // {
     //   //Arrange
-    //   Band testBand = new Band ();
+    //   Band testBand = new Band ("Tool");
     //   testBand.Save();
     //
     //   Venue testVenue = new Venue ("Seattle");
     //   testVenue.Save();
     //   //Act
     //   testBand.AddVenueToBand(testVenue);
-    //   List<Venue> result = testBand.GetVenues();
+    //   List<Venue> result = testBand.GetVenue();
     //   int resultOne = result[0].GetId();
     //   int resultTwo = testVenue.GetId();
     //   //Assert
     //   Assert.AreEqual(resultOne, resultTwo);
     // }
-    // //tests whether find method works on instances of Band class
+    // // //tests whether find method works on instances of Band class
     // [TestMethod]
     // public void Find_AllBandObjects_InDatabase()
     // {
-    //   //Arrange
-    //   Band testBand = new Band ("Jimi Hendrix");
-    //   testBand.Save();
-    //   //Act
-    //   Band foundBand = Band.Find(testBand.GetId());
-    //   //Assert
-    //   Assert.AreEqual(testBand, foundBand);
+      //Arrange
+      // Band testBand = new Band ("Jimi Hendrix");
+      // testBand.Save();
+      // //Act
+      // Band foundBand = Band.Find(testBand.GetId());
+      // //Assert
+      // Assert.AreEqual(testBand, foundBand);
     // }
-    // //tests whether update method works on instances of Band class
+    //tests whether update method works on instances of Band class
     // [TestMethod]
     // public void Update_BandObject_BandsTable()
     // {
@@ -87,12 +87,12 @@ namespace BandApp.Tests
     //
     //   string updatedName = "Pearl Jam";
     //   //Act
-    //   testBand.UpdateBand(updatedImage, updatedAuthor, updatedName, updatedIsbn, updatedPublisher, updatedPrice, updatedQuantity);
-    //   string result = Band.Find(testBand.GetId()).GetName();
+    //   testBand.UpdateBand(updatedName);
+    //   string result = Band.Find(testBand.GetId()).GetBandName();
     //   //Assert
     //   Assert.AreEqual(updatedName, result);
     // }
-    //
+
     // [TestMethod]
     // public void TestSearchBand()
     // {
@@ -101,16 +101,7 @@ namespace BandApp.Tests
     //   List<Band> MyBands = Band.SearchBands("This is a test");
     //   Assert.AreEqual("This is a test",MyBands[0].GetName());
     // }
-    //
-    //
-    //
-    // [TestMethod]
-    // public void TestUpdateQuantity()
-    // {
-    //   Band MyBand = new Band("img", "James Harrison", "IPython Notebands", "21231233", "Version", 21, 10);
-    //   MyBand.Save();
-    //   MyBand.UpdateQuantity();
-    //   Assert.AreEqual(9,MyBand.GetQuantity());
-    // }
+
+    
   }
 }
