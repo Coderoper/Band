@@ -1,0 +1,58 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Venues</h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      @if(Model.Count != 0)
+      {
+        <div class="float-right text-center sticky-top col-md-2">
+          <h5><a class="btn btn-secondary" href="/venues/new">Enter a new venue</a></h5>
+          <hr class="w-25">
+          <h5><a class="btn btn-secondary" href="/bands/new">Send Band to Venue</a></h5>
+          <hr class="w-25">
+          <h5><a class="btn btn-secondary" href="/venues/deleteall">Delete all venues</a></h5>
+          <hr class="w-25">
+        </div>
+        <ul class="list-group">
+          @foreach(var venue in Model)
+          {
+            <li class="list-group-item">
+              <div class="table-responsive-md">
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Name</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>@venue.GetId()</th>
+                      /* <td>@venue.GetVenueName()</td> */
+                      <td class="w-50">@venue.GetVenueName()</td>
+                      <td class="w-50 d-inline-block">
+                        <a class="btn btn-secondary" href="/venues/@venue.GetId()/update">Update</a>
+                        <hr class="w-25">
+                        <a class="btn btn-secondary" href="/venues/@venue.GetId()/delete">Delete</a>
+                        <hr class="w-25">
+                        <a class="btn btn-secondary" href="/venues/@venue.GetId()/details">Details</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          }
+        </ul>
+      } else
+      {
+        <h5>No venues have been entered.</h5>
+        <h5><a class="btn btn-secondary" href="/venues/new">Enter a new venue</a></h5>
+        <h5><a class="btn btn-secondary" href="/">Return home</a></h5>
+      }
+    </div>
+  </div>
+</div>

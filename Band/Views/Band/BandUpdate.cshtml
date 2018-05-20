@@ -1,0 +1,18 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Update band</h2>
+  <form class="col-md-6" action="/bands/@Model.GetId()/update" method="post">
+
+
+    <div class="form-group">
+      <label for="band_name">Enter Band:</label>
+      <input name="band_name" type="text" class="form-control" id="bandName" value ="@Model.GetBookName()">
+    </div>
+
+  
+
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+</div>

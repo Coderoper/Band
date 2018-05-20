@@ -1,0 +1,15 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Update a venue</h2>
+  <form class="col-md-6" action="/venues/@Model.GetId()/updated" method="post">
+    <div class="form-group">
+      <label for="venue_name">Enter Name</label>
+      <input name="venue_name" type="text" class="form-control" id="venueName" placeholder="Joe Blow" value="@Model.GetVenueName()">
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Update</button>
+  </form>
+  <hr>
+</div>

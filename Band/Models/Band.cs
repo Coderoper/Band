@@ -127,12 +127,12 @@ namespace BandApp.Models
     }
 
     //get all Band-linked customer instances from join table
-    public List<Venue> GetVenue()
+    public List<Venue> GetVenues()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT venues.* FROM bands
+      cmd.CommandText = @"SELECT venues* FROM bands
       JOIN bands_venues ON (bands.id = bands_venues.bands_id)
       JOIN venues ON (bands_venues.venues_id = venues_id) WHERE bands.id = @BandId;";
 
@@ -255,29 +255,29 @@ namespace BandApp.Models
       }
     }
     //search for bands
-    // public static List<Band> SearchBands(string band)
-    // {
-    //  List<Band> MyBands = new List<Band> {};
-    //  MySqlConnection conn = DB.Connection();
-    //  conn.Open();
-    //
-    //  MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-    //  cmd.CommandText = @"SELECT * FROM bands WHERE band_name LIKE '%" + band "';";
-    //  MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-    //  while(rdr.Read())
-    //  {
-    //    int id = rdr.GetInt32(0);
-    //    string bandName = rdr.GetString(1);
-    //    Band newBand = new Band(bandName, id);
-    //    MyBands.Add(newBand);
-    //  }
-    //
-    //  conn.Close();
-    //  if(conn != null)
-    //  {
-    //    conn.Dispose();
-    //  }
-    //  return MyBands;
-    // }
+  //   public static List<Band> SearchBands(string band)
+  //   {
+  //    List<Band> MyBands = new List<Band> {};
+  //    MySqlConnection conn = DB.Connection();
+  //    conn.Open();
+  //
+  //    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+  //    cmd.CommandText = @"SELECT * FROM bands WHERE band_name LIKE '%" + band "';";
+  //    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+  //    while(rdr.Read())
+  //    {
+  //      int id = rdr.GetInt32(0);
+  //      string bandName = rdr.GetString(1);
+  //      Band newBand = new Band(bandName, id);
+  //      MyBands.Add(newBand);
+  //    }
+  //
+  //    conn.Close();
+  //    if(conn != null)
+  //    {
+  //      conn.Dispose();
+  //    }
+  //    return MyBands;
+  //   }
   }
 }

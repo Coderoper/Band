@@ -1,0 +1,49 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Book Details</h2>
+  <hr>
+  @if(Model["bookCustomers"].Count != 0)
+  {
+    <h5 class="text-truncate d-inline-block w-50"><strong>@Model["selectedBook"].GetBandName()</strong></h5>
+    <hr class="w-25">
+    <a class="sticky-top btn btn-secondary"href="/customers/new">Add another customer</a>
+    <hr class="w-25">
+    <a class="btn btn-secondary" href="/books/@Model["selectedBook"].GetId()/update">Update Book</a>
+    <hr class="w-25">
+    <a class="btn btn-secondary" href="/books/@Model["selectedBook"]/delete">Delete Book</a>
+    <hr class="w-25">
+    @foreach (var customer in Model["bookCustomers"])
+    {
+        <table class="text-center table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col"><strong>Customer ID</strong></th>
+              <th scope="col">Name</th>
+              <th scope="col"><strong>Address</strong></th>
+              <th scope="col"><strong>Actions<strong></th>
+
+            </tr>
+          </thead>
+          <tbody class="">
+            <tr>
+              <th class="w-25" scope="row">
+                #@customer.GetId()
+              </th>
+              <td class="w-25">@customer.GetName()</td>
+              <td class="w-25">@customer.GetAddress()</td>
+              <td>
+                <a class="btn btn-secondary" href="/customers/@customer.GetId()">Customer Details</a>
+                <hr class="w-25">
+                <a class="btn btn-secondary" href="/customers/@customer.GetId()/update">Update Customer</a>
+              </td>
+          </tbody>
+        </table>
+    }
+  }
+  else
+  {
+    <h5>No customers have purchased this book.</h5>
+  }
+</div>

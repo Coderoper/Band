@@ -1,0 +1,52 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Venue Details</h2>
+  <hr>
+  @if (Model["venueBands"].Count == 0)
+  {
+    <!-- <h5>@Model["selectedCustomer"].GetName() hasn't purchased any bands</h5> -->
+    <h5>You havent selected any bands.</h5>
+    <h5>Please select another venue or select a band.</h5>
+    <a class="btn btn-secondary" href="/venues">See all venues</a>
+    <hr class="w-25">
+    <a class="btn btn-secondary" href="/bands">See all bands</a>
+
+  }
+  else
+  {
+    <h4>Bands bought by: @Model["selectedVenue"].GetBandName()</h4>
+    @foreach (var band in Model["venueBands"])
+    {
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col"><strong>Band ID</strong></th>
+              <th scope
+              <th scope="col"><strong>Artist</strong></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">@band.GetId()</th>
+
+              <td>@band.GetBandName()</td>
+            
+              <td>
+                <a class="btn btn-secondary" href="/bands/@band.GetId()">Details</a>
+                <hr class="w-25">
+                <a class="btn btn-secondary" href="/bands/@band.GetId()/update">Update</a>
+                <hr>
+                <a class="btn btn-secondary" href="/bands/delete">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    }
+  }
+</div>

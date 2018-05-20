@@ -242,7 +242,5 @@ namespace BandApp.Models
          }
          return MyVenues;
         }
-
-
   }
 }

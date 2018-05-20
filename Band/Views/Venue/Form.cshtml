@@ -1,0 +1,14 @@
+@{
+Layout = "_Layout";
+}
+<div class="container-fluid">
+  <h2 class="display-4">Add a New Venue</h2>
+  <form class="col-md-6" action="/venues" method="post">
+    <div class="form-group">
+      <label for="venue_name">Enter Location:</label>
+      <input name="venue_name" type="text" class="form-control" id="venueAddress" placeholder="Seattle">
+    </div>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+  <hr>
+</div>
