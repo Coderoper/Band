@@ -2,24 +2,24 @@
 Layout = "_Layout";
 }
 <div class="container-fluid">
-  <h2 class="display-4">Book Details</h2>
+  <h2 class="display-4">Band Details</h2>
   <hr>
-  @if(Model["bookCustomers"].Count != 0)
+  @if(Model["bandVenues"].Count != 0)
   {
-    <h5 class="text-truncate d-inline-block w-50"><strong>@Model["selectedBook"].GetBandName()</strong></h5>
+    <h5 class="text-truncate d-inline-block w-50"><strong>@Model["selectedBand"].GetBandName()</strong></h5>
     <hr class="w-25">
-    <a class="sticky-top btn btn-secondary"href="/customers/new">Add another customer</a>
+    <a class="sticky-top btn btn-secondary"href="/venues/new">Add another venue</a>
     <hr class="w-25">
-    <a class="btn btn-secondary" href="/books/@Model["selectedBook"].GetId()/update">Update Book</a>
+    <a class="btn btn-secondary" href="/bands/@Model["selectedBand"].GetId()/update">Update Band</a>
     <hr class="w-25">
-    <a class="btn btn-secondary" href="/books/@Model["selectedBook"]/delete">Delete Book</a>
+    <a class="btn btn-secondary" href="/bands/@Model["selectedBand"]/delete">Delete Band</a>
     <hr class="w-25">
-    @foreach (var customer in Model["bookCustomers"])
+    @foreach (var venue in Model["bandVenues"])
     {
         <table class="text-center table">
           <thead class="thead-light">
             <tr>
-              <th scope="col"><strong>Customer ID</strong></th>
+              <th scope="col"><strong>Venue ID</strong></th>
               <th scope="col">Name</th>
               <th scope="col"><strong>Address</strong></th>
               <th scope="col"><strong>Actions<strong></th>
@@ -29,14 +29,14 @@ Layout = "_Layout";
           <tbody class="">
             <tr>
               <th class="w-25" scope="row">
-                #@customer.GetId()
+                #@venue.GetId()
               </th>
-              <td class="w-25">@customer.GetName()</td>
-              <td class="w-25">@customer.GetAddress()</td>
+              <td class="w-25">@venue.GetName()</td>
+              <td class="w-25">@venue.GetAddress()</td>
               <td>
-                <a class="btn btn-secondary" href="/customers/@customer.GetId()">Customer Details</a>
+                <a class="btn btn-secondary" href="/venues/@venue.GetId()">Venue Details</a>
                 <hr class="w-25">
-                <a class="btn btn-secondary" href="/customers/@customer.GetId()/update">Update Customer</a>
+                <a class="btn btn-secondary" href="/venues/@venue.GetId()/update">Update Venue</a>
               </td>
           </tbody>
         </table>
@@ -44,6 +44,6 @@ Layout = "_Layout";
   }
   else
   {
-    <h5>No customers have purchased this book.</h5>
+    <h5>No venues have added this band.</h5>
   }
 </div>

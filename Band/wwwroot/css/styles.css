@@ -9,12 +9,14 @@ h1 {
   display: block;
   float: right;
 }
+.links {
+  background-color: white;
+}
 .jumbotron {
-  border-radius: 20px;
+  border-radius: 10px;
 }
 #main-header {
   color: white;
-  font-weight: 300;
 }
 .footer {
   position: fixed;
@@ -31,4 +33,7 @@ h1 {
 .card {
   max-width: 500px;
   max-height: 500px;
+}
+.pic {
+  padding: 20px;
 }

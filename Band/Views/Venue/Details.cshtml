@@ -6,7 +6,7 @@ Layout = "_Layout";
   <hr>
   @if (Model["venueBands"].Count == 0)
   {
-    <!-- <h5>@Model["selectedCustomer"].GetName() hasn't purchased any bands</h5> -->
+  <h5>@Model["selectedVenue"].GetVenueName() hasn't added any bands</h5>
     <h5>You havent selected any bands.</h5>
     <h5>Please select another venue or select a band.</h5>
     <a class="btn btn-secondary" href="/venues">See all venues</a>
@@ -35,7 +35,7 @@ Layout = "_Layout";
               <th scope="row">@band.GetId()</th>
 
               <td>@band.GetBandName()</td>
-            
+
               <td>
                 <a class="btn btn-secondary" href="/bands/@band.GetId()">Details</a>
                 <hr class="w-25">

@@ -126,13 +126,13 @@ namespace BandApp.Models
       return allBands;
     }
 
-    //get all Band-linked customer instances from join table
+    //get all Band-linked venue instances from join table
     public List<Venue> GetVenues()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT venues* FROM bands
+      cmd.CommandText = @"SELECT venues.* FROM bands
       JOIN bands_venues ON (bands.id = bands_venues.bands_id)
       JOIN venues ON (bands_venues.venues_id = venues_id) WHERE bands.id = @BandId;";
 
@@ -224,7 +224,7 @@ namespace BandApp.Models
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"DELETE FROM bands WHERE id = @BandId
-      DELETE FROM bands_customers WHERE bands_id = @BandId;";
+      DELETE FROM bands_venues WHERE bands_id = @BandId;";
 
       MySqlParameter id = new MySqlParameter();
       id.ParameterName = "@BandId";

@@ -2,7 +2,7 @@
 Layout = "_Layout";
 }
 <div class="container-fluid">
-  <h2 class="display-4">Inventory</h2>
+  <h2 class="display-4">Available bands</h2>
   <hr>
 
   <div class="row">
@@ -24,10 +24,10 @@ Layout = "_Layout";
                 <table class="table text-center">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col"><strong>Book ID</strong></th>
+                      <th scope="col"><strong>Band Name</strong></th>
                       <th scope="col"><strong>Title</strong></th>
                       <th scope="col"><strong>Actions</strong></th>
-                      <th scope="col"><strong>Buy</strong></th>
+                      <th scope="col"><strong>Add Band to Venue</strong></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -43,11 +43,11 @@ Layout = "_Layout";
                         <a class="btn btn-secondary" href="/bands/delete">Delete</a>
                       </td>
                       <td>
-                        <form class="form" action="~/venues/checkout" method="post">
+                        <form class="form" action="~/venues" method="post">
                           <div class="form-group">
                             <input type="hidden" class="form-control"name= "bandid" value="@band.GetId()"  readonly></input>
-                            <label for="appendName">Select your name:</label>
-                            <select class="form-control" name="appendName">
+                            <label for="venue_name">Select Venue:</label>
+                            <select class="form-control" name="venue_name">
                               @foreach(var venue in Model["Venues"])
                               {
                                 <option value="@venue.GetId()">@venue.GetVenueName()</option>
