@@ -47,13 +47,21 @@ namespace BandApp.Controllers
       // {
       //
       // }
-      [HttpGet("/bands/{id}/delete")]
+      [HttpGet("/bands/delete")]
       public ActionResult DeleteBand(int id)
       {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Band selectedBand = Band.Find(id);
         selectedBand.DeleteBand();
         return View("Index", model);
+      }
+      [HttpPost("/bands/delete")]
+      public ActionResult DeletePost()
+      {
+        int id=int.Parse(Request.Form["deleteId"]);
+        Band selectedBand = Band.Find(id);
+        selectedBand.DeleteBand();
+        return RedirectToAction("Index");
       }
 
       // [HttpPost("/search")]

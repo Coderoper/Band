@@ -1,0 +1,13 @@
+@{
+Layout = "_Layout";
+}
+<div>
+  <form action="/band/delete" method="post">
+  <select id="deleteId">
+    @foreach(var band in Model)
+    {
+      <h5><option> value="@band.GetId()">@band.GetBandName()</option></h5>
+    }
+  </select>
+  <button type="submit">Delete this Band</button>
+</form>

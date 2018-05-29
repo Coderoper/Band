@@ -1,52 +1,35 @@
 @{
 Layout = "_Layout";
 }
-<div class="container-fluid">
-  <h2 class="display-4">Venue Details</h2>
-  <hr>
-  @if (Model["venueBands"].Count == 0)
+  <h2>Venue Details</h2>
+  <!-- correct["bandVenues"]? -->
+  @if(Model["bandVenues"].Count != 0)
   {
-  <h5>@Model["selectedVenue"].GetVenueName() hasn't added any bands</h5>
-    <h5>You havent selected any bands.</h5>
-    <h5>Please select another venue or select a band.</h5>
-    <a class="btn btn-secondary" href="/venues">See all venues</a>
-    <hr class="w-25">
-    <a class="btn btn-secondary" href="/bands">See all bands</a>
-
-  }
-  else
-  {
-    <h4>Bands bought by: @Model["selectedVenue"].GetBandName()</h4>
-    @foreach (var band in Model["venueBands"])
+    <h5 ><strong>@Model["selectedVenue"].GetVenueName()</strong></h5>
+    @if (@Model["bandVenues"].Count !=0)
     {
-
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col"><strong>Band ID</strong></th>
-              <th scope
-              <th scope="col"><strong>Artist</strong></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">@band.GetId()</th>
-
-              <td>@band.GetBandName()</td>
-
-              <td>
-                <a class="btn btn-secondary" href="/bands/@band.GetId()">Details</a>
-                <hr class="w-25">
-                <a class="btn btn-secondary" href="/bands/@band.GetId()/update">Update</a>
-                <hr>
-                <a class="btn btn-secondary" href="/bands/delete">Delete</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <h4>Venues:</h4>
+      <ul>
+        @foreach (var venue in @Model["bandVenues"])
+        {
+          <li>@venue.GetVenueName()</li>
+        }
+      </ul>
     }
   }
-</div>
+  <h4> Add venue to this band</h4>
+  <form action='/venues/@Model["selectedVenue"].GetId()/bands/new' method='post'>
+    <label for='band-id>Select a band</label'>
+    <select id='band-id' name='band-id' type='text'>
+      @foreach (var band in @Model["allBands"])
+      {
+        <option value='@band.GetId()'>@band.GetBandName()</option>
+      }
+    </select>
+    <button type='submit'>Add</button>
+  </form>
+  <p><a href="/">Home</a></p>
+  else
+  {
+    <h5>No bands have added this venues.</h5>
+  }

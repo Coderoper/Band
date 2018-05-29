@@ -29,6 +29,30 @@ namespace BandApp.Models
     {
       _venueName = newVenueName;
     }
+    public void AddBandtoVenue(Band newBand)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO bands_venues(bands_id, venues_id) VALUES (@BandId, @VenueId);";
+
+      MySqlParameter venue_id = new MySqlParameter();
+      venue_id.ParameterName = "@VenueId";
+      venue_id.Value = _id;
+      cmd.Parameters.Add(venue_id);
+
+      MySqlParameter band_id = new MySqlParameter();
+      band_id.ParameterName = "@BandId";
+      band_id.Value = newBand.GetId();
+      cmd.Parameters.Add(band_id);
+
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if(conn != null)
+      {
+        conn.Dispose();
+      }
+    }
 
     public void Save()
     {
