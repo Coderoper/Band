@@ -7,3 +7,11 @@
 /Users/austinroberts/Desktop/Band.Solution/Band/bin/Debug/netcoreapp1.1/Band.pdb
 /Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.dll
 /Users/austinroberts/Desktop/Band.Solution/Band/obj/Debug/netcoreapp1.1/Band.pdb
+/Users/Guest/Desktop/Band/Band/bin/Debug/netcoreapp1.1/Band.deps.json
+/Users/Guest/Desktop/Band/Band/bin/Debug/netcoreapp1.1/Band.runtimeconfig.json
+/Users/Guest/Desktop/Band/Band/bin/Debug/netcoreapp1.1/Band.runtimeconfig.dev.json
+/Users/Guest/Desktop/Band/Band/bin/Debug/netcoreapp1.1/Band.dll
+/Users/Guest/Desktop/Band/Band/bin/Debug/netcoreapp1.1/Band.pdb
+/Users/Guest/Desktop/Band/Band/obj/Debug/netcoreapp1.1/Band.AssemblyInfo.cs
+/Users/Guest/Desktop/Band/Band/obj/Debug/netcoreapp1.1/Band.dll
+/Users/Guest/Desktop/Band/Band/obj/Debug/netcoreapp1.1/Band.pdb
