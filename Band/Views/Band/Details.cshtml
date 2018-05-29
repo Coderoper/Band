@@ -21,7 +21,7 @@ Layout = "_Layout";
     <h5>No venues have added this band.</h5>
   }
   <h4> Add band to this venue</h4>
-  <form action='/bands/@Model["selectedBand"].GetId()/venues/new' method='post'>
+  <form action='/bands/@Model["selectedBand"].GetId()/' method='post'>
     <label for='venue-id>Select a venue</label'>
     <select id='venue-id' name='venue-id' type='text'>
       @foreach (var venue in @Model["allVenues"])
@@ -32,4 +32,3 @@ Layout = "_Layout";
     <button type='submit'>Add</button>
   </form>
   <p><a href="/">Home</a></p>
-  

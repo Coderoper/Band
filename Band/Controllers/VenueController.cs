@@ -52,7 +52,7 @@ namespace BandApp.Controllers
       foundVenue.UpdateVenue(Request.Form["venue_name"]);
       return RedirectToAction("Index", foundVenue);
     }
-    [HttpPost("/venues/{id}/")]
+    [HttpPost("/venues/{id}")]
     public ActionResult PostNewBand(int id)
     {
       Venue selectedVenue = Venue.Find(id);

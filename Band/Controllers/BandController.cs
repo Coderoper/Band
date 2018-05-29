@@ -44,11 +44,7 @@ namespace BandApp.Controllers
         model.Add("allVenues", allVenues);
         return View("Details", model);
       }
-      // [HttpPost("/band/{id/addvenue/}")]
-      // public ActionResult AddVenueToBand(int id)
-      // {
-      //
-      // }
+
       [HttpGet("/bands/delete")]
       public ActionResult DeleteBand(int id)
       {
