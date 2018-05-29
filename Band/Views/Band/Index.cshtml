@@ -4,7 +4,7 @@ Layout = "_Layout";
 
   <h2>Available bands</h2>
 
-      @if(Model["Bands"].Count != 0)
+      @if(Model["allBands"].Count != 0)
       {
         <div class="col-md-2">
           <h5><a class="btn btn-secondary" href="/bands/new">Add a new band</a></h5>
@@ -14,7 +14,7 @@ Layout = "_Layout";
 
         </div>
         <ul class="list-group">
-          @foreach(var band in Model["Bands"])
+          @foreach(var band in Model["allBands"])
           {
             <li><a href="/bands/@band.GetId()">@band.GetBandName()</a></li>
           }

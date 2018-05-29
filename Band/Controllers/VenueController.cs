@@ -25,7 +25,7 @@ namespace BandApp.Controllers
       newVenue.Save();
       return RedirectToAction("Index");
     }
-    [HttpGet("/venues/{id}/details")]
+    [HttpGet("/venues/{id}/")]
     public ActionResult Details(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object> ();
@@ -49,9 +49,16 @@ namespace BandApp.Controllers
     public ActionResult PostUpdate(int id)
     {
       Venue foundVenue = Venue.Find(id);
-      foundVenue.UpdateVenue(Request.Form["venue_name"]
-      );
+      foundVenue.UpdateVenue(Request.Form["venue_name"]);
       return RedirectToAction("Index", foundVenue);
+    }
+    [HttpPost("/venues/{id}/")]
+    public ActionResult PostNewBand(int id)
+    {
+      Venue selectedVenue = Venue.Find(id);
+      Band selectedBand= Band.Find(int.Parse(Request.Form["band_id"]));
+      selectedVenue.AddBandtoVenue(selectedBand);
+      return RedirectToAction("Index",selectedVenue);
     }
 
 

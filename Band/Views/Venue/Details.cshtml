@@ -3,24 +3,27 @@ Layout = "_Layout";
 }
   <h2>Venue Details</h2>
   <!-- correct["bandVenues"]? -->
-  @if(Model["bandVenues"].Count != 0)
+  @if (Model["venueBands"].Count != 0)
   {
     <h5 ><strong>@Model["selectedVenue"].GetVenueName()</strong></h5>
-    @if (@Model["bandVenues"].Count !=0)
+    @if (@Model["venueBands"].Count !=0)
     {
       <h4>Venues:</h4>
       <ul>
-        @foreach (var venue in @Model["bandVenues"])
+        @foreach (var band in @Model["venueBands"])
         {
-          <li>@venue.GetVenueName()</li>
+          <li>@band.GetBandName()</li>
         }
       </ul>
     }
+  } else
+  {
+    <h5>No bands have added this venues.</h5>
   }
-  <h4> Add venue to this band</h4>
-  <form action='/venues/@Model["selectedVenue"].GetId()/bands/new' method='post'>
-    <label for='band-id>Select a band</label'>
-    <select id='band-id' name='band-id' type='text'>
+  <h4> Add band to this venue</h4>
+  <form action='/venues/@Model["selectedVenue"].GetId()/' method='post'>
+    <label for='band_id>Select a band</label'>
+    <select id='band_id' name='band_id' type='text'>
       @foreach (var band in @Model["allBands"])
       {
         <option value='@band.GetId()'>@band.GetBandName()</option>
@@ -29,7 +32,3 @@ Layout = "_Layout";
     <button type='submit'>Add</button>
   </form>
   <p><a href="/">Home</a></p>
-  else
-  {
-    <h5>No bands have added this venues.</h5>
-  }

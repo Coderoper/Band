@@ -12,9 +12,9 @@ namespace BandApp.Controllers
       {
       List<Band> allBands = Band.GetAll();
       Dictionary<string, object> model = new Dictionary<string, object>();
-      List<Venue> newVenue = Venue.GetAll();
-      model.Add("Venues", newVenue);
-      model.Add("Bands", allBands);
+      List<Venue> allVenues = Venue.GetAll();
+      model.Add("allVenues", allVenues);
+      model.Add("allBands", allBands);
 
       return View(model);
       }
@@ -37,9 +37,11 @@ namespace BandApp.Controllers
       {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Band selectedBand = Band.Find(id);
+        List<Venue> allVenues = Venue.GetAll();
         List<Venue> bandVenues = selectedBand.GetVenues();
         model.Add("selectedBand", selectedBand);
         model.Add("bandVenues", bandVenues);
+        model.Add("allVenues", allVenues);
         return View("Details", model);
       }
       // [HttpPost("/band/{id/addvenue/}")]
