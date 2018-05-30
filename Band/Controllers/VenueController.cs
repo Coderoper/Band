@@ -42,6 +42,8 @@ namespace BandApp.Controllers
     public ActionResult UpdateVenue(int id)
     {
       Venue selectedVenue = Venue.Find(id);
+      // selectedVenue.UpdateVenue();
+      // Venue selectedVenue = Venue.Find(int.Parse(Request.Form["venue_id"]));
       return View("VenueUpdate",selectedVenue);
     }
 
@@ -68,6 +70,7 @@ namespace BandApp.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Venue selectedVenue = Venue.Find(id);
+      // Venue selectedVenue = Venue.Find(int.Parse(Request.Form["venue_id"]));
       selectedVenue.DeleteVenue();
       return RedirectToAction("Index", model);
     }

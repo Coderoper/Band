@@ -31,12 +31,12 @@ Layout = "_Layout";
     </select>
     <button type='submit'>Add</button>
   </form>
-  <form action='/bands/delete' method='post'>
+  <form action='/bands/{id}/delete' method='post'>
     <label for='band_id'> Delete Band</label>
     <button type='submit'>Delete</button>
   </form>
-  <form action='/bands/update' method='post'>
-    <label for='band_id'> Delete Band</label>
-    <button type='submit'>Update Band</button>
+  <form action='/bands/{id}update' method='post'>
+    <label for='band_id'> Update Band</label>
+    <button type='submit'>Update</button>
   </form>
       <p><a href="/">Home</a></p>
