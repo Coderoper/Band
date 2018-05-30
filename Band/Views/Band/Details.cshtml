@@ -22,8 +22,8 @@ Layout = "_Layout";
   }
   <h4> Add band to this venue</h4>
   <form action='/bands/@Model["selectedBand"].GetId()/' method='post'>
-    <label for='venue-id>Select a venue</label'>
-    <select id='venue-id' name='venue-id' type='text'>
+    <label for='venue_id'> Select a venue</label>
+    <select id='venue_id' name='venue_id' type='text'>
       @foreach (var venue in @Model["allVenues"])
       {
         <option value='@venue.GetId()'>@venue.GetVenueName()</option>
@@ -31,4 +31,12 @@ Layout = "_Layout";
     </select>
     <button type='submit'>Add</button>
   </form>
-  <p><a href="/">Home</a></p>
+  <form action='/bands/delete' method='post'>
+    <label for='band_id'> Delete Band</label>
+    <button type='submit'>Delete</button>
+  </form>
+  <form action='/bands/update' method='post'>
+    <label for='band_id'> Delete Band</label>
+    <button type='submit'>Update Band</button>
+  </form>
+      <p><a href="/">Home</a></p>

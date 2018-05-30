@@ -44,6 +44,14 @@ namespace BandApp.Controllers
         model.Add("allVenues", allVenues);
         return View("Details", model);
       }
+      [HttpPost("/bands/{id}")]
+      public ActionResult PostNewVenue(int id)
+      {
+        Band selectedBand = Band.Find(id);
+        Venue selectedVenue=Venue.Find(int.Parse(Request.Form["venue_id"]));
+        selectedBand.AddVenueToBand(selectedVenue);
+        return RedirectToAction("Index", selectedVenue);
+      }
 
       [HttpGet("/bands/delete")]
       public ActionResult DeleteBand(int id)
@@ -62,16 +70,6 @@ namespace BandApp.Controllers
         return RedirectToAction("Index");
       }
 
-      // [HttpPost("/search")]
-      // public ActionResult Search()
-      // {
-      //   List<Band> searchBand = Band.SearchBands(Request.Form["searchdate"]);
-      //   Dictionary<string, object> model = new Dictionary<string, object>();
-      //   List<Venue> newVenue = Venue.GetAll();
-      //   model.Add("Venues", newVenue);
-      //   model.Add("Bands", searchBand);
-      //   return View("Index", model);
-      // }
 
       [HttpGet("/bands/{id}/update")]
       public ActionResult UpdateForm(int id)
@@ -87,6 +85,12 @@ namespace BandApp.Controllers
         Band selectedBand = Band.Find(id);
         selectedBand.UpdateBand(Request.Form["band_name"]);
         return RedirectToAction("Index");
+      }
+      [HttpGet("/bands/deleteall")]
+      public ActionResult DeleteAll()
+      {
+        Band.DeleteAll();
+        return View("Index");
       }
   }
 }

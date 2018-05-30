@@ -6,11 +6,8 @@ Layout = "_Layout";
       @if(Model.Count != 0)
       {
           <h5><a class="btn btn-secondary" href="/venues/new">Enter a new venue</a></h5>
-          <h5><a class="btn btn-secondary" href="/bands/">Send Band to Venue</a></h5>
-          <!-- <h5><a class="btn btn-secondary" href="/venues/">Send Venue to Band</a></h5> -->
+          <h5><a class="btn btn-secondary" href="/bands/">Add Venue to Band</a></h5>
           <h5><a class="btn btn-secondary" href="/venues/deleteall">Delete all venues</a></h5>
-
-
         <ul>
           @foreach(var venue in Model)
           {

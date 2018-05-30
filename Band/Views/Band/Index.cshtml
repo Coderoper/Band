@@ -6,14 +6,10 @@ Layout = "_Layout";
 
       @if(Model["allBands"].Count != 0)
       {
-        <div class="col-md-2">
           <h5><a class="btn btn-secondary" href="/bands/new">Add a new band</a></h5>
-          <hr>
-          <h5><a class="btn btn-secondary" href="/venues/new">Enter a new venue</a></h5>
-          <hr>
-
-        </div>
-        <ul class="list-group">
+          <h5><a class="btn btn-secondary" href="/venue/">Send band to venue</a></h5>
+          <h5><a class="btn btn-secondary" href="/venues/deleteall">Delete all bands</a></h5>
+        <ul>
           @foreach(var band in Model["allBands"])
           {
             <li><a href="/bands/@band.GetId()">@band.GetBandName()</a></li>
